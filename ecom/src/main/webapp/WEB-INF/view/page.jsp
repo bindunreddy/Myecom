@@ -37,7 +37,17 @@
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-  </div>
+    
+    
 
     </div><!-- /.container -->
+    <div class="categories">
+    <h2>Categories</h2>
+    <hr/>
+  
+    <img src="resources/images/img.bnr.jpg" class="img-circle" alt="bnr"  align="middle" width="304" height="236"> 
+    </div>
+    <img src="resources/images/img.bnr2.jpg" class="img-circle" alt="bnr"  align="middle" width="304" height="236"> 
+    </div>
+    
     

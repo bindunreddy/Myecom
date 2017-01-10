@@ -1,43 +1,100 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/bootstrap.css">
-<link rel="stylesheet" href="resources/css/app.css">
-</head>
-<body>
-	<%@include file="header.jsp"%>
-	<div class="container">
+
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%-- <spring:url value="/resources/images/productimages/" var="images" /> --%>
+<%-- <c:set var="cp" value="${pageContext.request.contextPath}" /> --%>
+
+<!-- Bootstrap core CSS -->
+    <link href="resources/css/bootstrap.css" rel="stylesheet">
+    <link href="resources/css/app.css" rel="stylesheet">
+<title>ADMIN PRODUCT FORM||SHAHMART</title>
+
+<%@include file="header.jsp"%>
+<c:set var="cp" value="${pageContext.request.contextPath}" />
+
+<!-- Adding container for the Label Itself -->
+<div class="container">
+
+	<div class="row vertical-center-row">
+		<div class="text-center col-md-4 col-md-offset-4" 	
+			style="background: white"></div>
+	</div>
+</div>
+<br>
+
+
+<form:form action="product.do" method="POST" modelAttribute="product"
+	enctype="multipart/form-data">
+	<div class="mainbox col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-2">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title">Admin Product Form</div>
+			</div>
+		</div>
 		<table class="table">
+
 			<tr>
-				<th>Product Id</th>
-				<th>Product Name</th>
-				<th>Product Price</th>
+				<td>Product Name</td>
+				<td><form:input path="name" cssClass="form-control" /> <form:hidden
+						path="id" /></td>
+				<td><form:errors path="name" cssClass="error" /></td>
 			</tr>
+			<tr>
+				<td>Product Brand</td>
+				<td><form:input path="brand" cssClass="form-control" /></td>
+			</tr>
+			<tr>
+				<td>Product Price</td>
+				<td><form:input path="price" cssClass="form-control" /></td>
+			</tr>
+			
 
-			<c:forEach items="${products}" var="prod">
-				<tr>
-					<td>${prod.id}</td>
-					<td>${prod.name}</td>
-					<td>${prod.price}</td>
-					<td><a href="<c:url value="/edit/{prod.id}"/>">Edit</a></td>
-					<td><a href="<c:url value="/delete/{prod.id}"/>">Delete</a></td>
-				</tr>
-
-
-			</c:forEach>
+			<tr>
+				<td class="col-sm-8 controls"><input type="submit"
+					class="btn btn-success" value="Submit" /></td>
+			</tr>
 
 		</table>
 	</div>
 
 
 
-	<%@include file="footer.jsp"%>
+
+</form:form>
+
+<div class="mainbox col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-2">
+
+	<table class="table">
+		<tr>
+			<th>Id</th>
+			<th>Product Name</th>
+			<th>Product Brand</th>
+			<th>Product Price</th>
+			
+
+		</tr>
+		<c:forEach items="${products}" var="product">
+			<tr>
+				<td>${product.id}</td>
+				<td>${product.name}</td>
+				<td>${product.brand}</td>
+				<td>${product.price}</td>
+				<!-- later added -->
+				<%-- <td><img src="${images}/${product.id}.jpg" height="100px"
+					width="100px" /></td> --%>
+				<td><a href="${cp}/adminform/edit/${product.id}"
+					class="btn btn-sm btn-primary">Edit</a><a
+					href="${cp}/adminform/delete/${product.id}"
+					class="btn btn-sm btn-primary">Delete</a>
+			</tr>
+
+
+		</c:forEach>
+
+	</table>
+</div>
 
 
 
