@@ -1,24 +1,21 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%-- <spring:url value="/resources/images/productimages/" var="images" /> --%>
-<%-- <c:set var="cp" value="${pageContext.request.contextPath}" /> --%>
 
-<!-- Bootstrap core CSS -->
-    <link href="resources/css/bootstrap.css" rel="stylesheet">
-    <link href="resources/css/app.css" rel="stylesheet">
-<title>ADMIN PRODUCT FORM||SHAHMART</title>
+<spring:url value="/resources/images/productimages/" var="images" />
+<c:set var="cp" value="${pageContext.request.contextPath}" />
+
+
+
 
 <%@include file="header.jsp"%>
-<c:set var="cp" value="${pageContext.request.contextPath}" />
+
 
 <!-- Adding container for the Label Itself -->
 <div class="container">
 
 	<div class="row vertical-center-row">
-		<div class="text-center col-md-4 col-md-offset-4" 	
+		<div class="text-center col-md-4 col-md-offset-4"
 			style="background: white"></div>
 	</div>
 </div>
@@ -49,7 +46,11 @@
 				<td>Product Price</td>
 				<td><form:input path="price" cssClass="form-control" /></td>
 			</tr>
-			
+			<tr>
+				<td><form:input path="file" type="file" /></td>
+
+			</tr>
+
 
 			<tr>
 				<td class="col-sm-8 controls"><input type="submit"
@@ -72,7 +73,8 @@
 			<th>Product Name</th>
 			<th>Product Brand</th>
 			<th>Product Price</th>
-			
+			<th>Product Image</th>
+
 
 		</tr>
 		<c:forEach items="${products}" var="product">
@@ -81,6 +83,7 @@
 				<td>${product.name}</td>
 				<td>${product.brand}</td>
 				<td>${product.price}</td>
+				<td>${product.file}</td>
 				<!-- later added -->
 				<%-- <td><img src="${images}/${product.id}.jpg" height="100px"
 					width="100px" /></td> --%>

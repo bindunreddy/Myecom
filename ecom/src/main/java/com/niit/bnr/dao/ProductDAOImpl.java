@@ -1,6 +1,4 @@
-
 package com.niit.bnr.dao;
-
 
 import java.util.List;
 
@@ -15,31 +13,31 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.niit.bnr.model.Product;
 
 @Repository("productDAO")
-@EnableTransactionManagement
-@Transactional
-public  class ProductDAOImpl implements ProductDAO {
 
+@Transactional
+public class ProductDAOImpl implements ProductDAO {
 
 	@Autowired
 	private SessionFactory session;
-	
+
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Product> getAllProducts(){
+	public List<Product> getAllProducts() {
 		return session.getCurrentSession().createQuery("from Product").list();
 	}
 
 	@Override
-    public void insert(Product p){
-    	Session s=session.getCurrentSession();
-    	s.persist(p);
-    }
-    
+	@Transactional
+	public void insert(Product p) {
+		session.getCurrentSession().persist(p);
+	}
+
 	@Override
 	public Product getProduct(String id) {
 		// TODO Auto-generated method stub
 		return (Product) session.getCurrentSession().get(Product.class, id);
 	}
+
 	@Override
 	public void deleteProduct(String id) {
 		// TODO Auto-generated method stub
@@ -53,6 +51,4 @@ public  class ProductDAOImpl implements ProductDAO {
 		session.getCurrentSession().update(product);
 	}
 
-
-	}
-
+}

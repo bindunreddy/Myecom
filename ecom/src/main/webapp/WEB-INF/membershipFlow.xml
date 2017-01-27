@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+
+	<!-- if not specified the first view state is the starting state -->
+	<view-state id="memberShip" view="checkout">
+		<transition on="submit" to="shipping" />
+	</view-state>
+
+
+
+	<view-state id="shipping" view="shipping">
+		<transition on="submit" to="payment" />
+
+	</view-state>
+	<view-state id="payment" view="payment">
+		<transition on="submit" to="toHome" />
+
+	</view-state>
+
+	
+	<end-state id="toHome" view="externalRedirect:contextRelative:index.jsp" />
+	
+
+	
+</flow>

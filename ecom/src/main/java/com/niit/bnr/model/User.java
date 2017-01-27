@@ -16,6 +16,7 @@ public class User {
 	private int userId;
 	private String username;
 	private String password;
+	private String email;
 	private String role;
 	private boolean enabled;
 	
@@ -39,6 +40,13 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getRole() {
 		return role;

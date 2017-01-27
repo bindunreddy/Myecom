@@ -7,25 +7,24 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "Product")
 public class Product {
-
+	
+	@Transient
+    MultipartFile file; 
+	
 	@Id
 	@Column
 	@NotNull
 	private String id;
 	private String name;
-	public String getBrand() {
-		return brand;
-	}
-
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-
+	
 	private double price;
 	private String brand;
 	
@@ -57,7 +56,20 @@ public class Product {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	public String getBrand() {
+		return brand;
+	}
 
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", brand=" + brand + "]";

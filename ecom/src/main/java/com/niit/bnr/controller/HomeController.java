@@ -53,5 +53,21 @@ ProductDAO prodDAO;
 		ModelAndView model=new ModelAndView("product");
 		return model;
 	}
+	@RequestMapping(value={"/fictionnovels"})
+	public ModelAndView fictionnovels(){
+		ModelAndView model=new ModelAndView("fictionnovels");
+		return model;
+	}
+	@RequestMapping(value={"/lovenovels"})
+	public ModelAndView lovenovels(){
+		ModelAndView model=new ModelAndView("lovenovels");
+		return model;
+	}
+	@RequestMapping(value={"/comics"})
+	public ModelAndView comics(){
+		ModelAndView model=new ModelAndView("comics");
+		return model;
+	}
+	
 }
 
