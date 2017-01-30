@@ -1,46 +1,70 @@
 package com.niit.bnr.model;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
-@SuppressWarnings("unused")
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class User {
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int userId;
-	private String username;
-	private String password;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "uid")
+	private int uid;
+
+	@Column(name = "name")
+	@NotEmpty(message = "Please enter the fields")
+	@NotBlank(message = "Please enter the fields")
+	private String name;
+
+	@Column(name = "email")
 	private String email;
-	private String role;
+
+	@Column(name = "password")
+	private String password;
+
+	@Column(name = "enabled")
 	private boolean enabled;
-	
-	@SuppressWarnings("unused")
-	private String city;
-	
-	public int getUserId() {
-		return userId;
+	@Column(name = "role")
+	private String role;
+
+	public boolean getEnabled() {
+		return enabled;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
-	public String getUsername() {
-		return username;
+
+	public String getRole() {
+		return role;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+
+	public void setRole(String role) {
+		this.role = role;
 	}
-	public String getPassword() {
-		return password;
+
+	public int getUid() {
+		return uid;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+
+	public void setUid(int uid) {
+		this.uid = uid;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -48,17 +72,12 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
-	public boolean isEnabled() {
-		return enabled;
-	}
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
+
+	public String getPassword() {
+		return password;
 	}
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }

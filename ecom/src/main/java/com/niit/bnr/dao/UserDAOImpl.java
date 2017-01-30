@@ -12,19 +12,18 @@ public class UserDAOImpl implements UserDAO {
 	@Autowired
 	private SessionFactory session;
 
-	
+	@Override
 	public void insertUser(User user) {
 		session.getCurrentSession().persist(user);
 
 	}
 
-	
+	@Override
 	public User getUserDetails(String userid) {
 
 		User user = (User) session.getCurrentSession().get(User.class, userid);
 		return user;
 
 	}
-
 
 }

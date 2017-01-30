@@ -18,10 +18,10 @@
 					<i class="fa fa-lock"></i>Sign Up
 				</h3>
 
-				<form:form method="POST" action="${cp}/in" modelAttribute="user">
+				<form:form method="POST" action="${cp}/insert" modelAttribute="user">
 
 					<div class="form-group">
-						<form:hidden path="uid" />
+						<form:hidden path="userId" />
 					</div>
 
 					<div class="form-group">
