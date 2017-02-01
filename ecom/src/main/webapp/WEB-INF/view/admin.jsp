@@ -3,8 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <spring:url value="/resources/images/productimages/" var="images" />
-<c:set var="cp" value="${pageContext.request.contextPath}" />
-
+<%-- <c:set var="cp" value="${pageContext.request.contextPath}" /> --%>
+<link href="resources/css/bootstrap.css" rel="stylesheet">
+<link href="resources/css/app.css" rel="stylesheet">
 
 
 
@@ -83,13 +84,13 @@
 				<td>${product.name}</td>
 				<td>${product.brand}</td>
 				<td>${product.price}</td>
-				<td>${product.file}</td>
+				<%-- <td>${product.file}</td> --%>
 				<!-- later added -->
-				<%-- <td><img src="${images}/${product.id}.jpg" height="100px"
-					width="100px" /></td> --%>
-				<td><a href="${cp}/adminform/edit/${product.id}"
+				 <td><img src="${images}/${product.id}.jpg" height="100px"
+					width="100px" /></td> 
+				<td><a href="${cp}/admin/adminform/edit/${product.id}"
 					class="btn btn-sm btn-primary">Edit</a><a
-					href="${cp}/adminform/delete/${product.id}"
+					href="${cp}/admin/adminform/delete/${product.id}"
 					class="btn btn-sm btn-primary">Delete</a>
 			</tr>
 

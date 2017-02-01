@@ -24,7 +24,7 @@ import com.niit.bnr.utils.MyUtils;
 
 //it is a controller, so annotation should be specified
 @Controller
-
+@RequestMapping("/admin")
 public class AdminController {
 
 	// We will do a mapping, so for this i need @RequestMapping annotation
@@ -49,7 +49,7 @@ public class AdminController {
 
 			if (results.hasErrors()) {
 				model.addAttribute("products", prod.getAllProducts());
-				return "admin";
+				return "admin/adminform";
 			}
 
 			prod.insert(product);
@@ -77,7 +77,7 @@ public class AdminController {
 				}
 			}
 			System.out.println(prod + "" +product);
-			return "redirect:/adminform";
+			return "redirect:/admin/adminform";
 
 		}
 		@RequestMapping(value = "/adminform/edit/{id}")
@@ -96,7 +96,7 @@ public class AdminController {
 		@RequestMapping(value = { "/adminform/delete/{id}" })
 		public String deleteProduct(@PathVariable("id") String id) {
 			prod.deleteProduct(id);
-			return "redirect:/adminform";
+			return "redirect:/admin/adminform";
 
 		}
 }

@@ -1,5 +1,7 @@
 package com.niit.bnr.model;
 
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,9 +15,13 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	@Column(name = "uid")
-	private int uid;
+	private String uid;
+	
+	public User() {
+		this.uid = "USER" + UUID.randomUUID().toString().substring(20).toUpperCase();
+	}
 
 	@Column(name = "name")
 	@NotEmpty(message = "Please enter the fields")
@@ -49,11 +55,11 @@ public class User {
 		this.role = role;
 	}
 
-	public int getUid() {
+	public String getUid() {
 		return uid;
 	}
 
-	public void setUid(int uid) {
+	public void setUid(String uid) {
 		this.uid = uid;
 	}
 

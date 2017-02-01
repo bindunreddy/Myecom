@@ -18,16 +18,16 @@
 					<i class="fa fa-lock"></i>Sign Up
 				</h3>
 
-				<form:form method="POST" action="${cp}/insert" modelAttribute="user">
+				<form:form method="POST" action="insert" modelAttribute="user">
 
 					<div class="form-group">
-						<form:hidden path="userId" />
+						<form:hidden path="uid" />
 					</div>
 
 					<div class="form-group">
-						<form:input path="uname" class="form-control"
+						<form:input path="name" class="form-control"
 							placeholder="User Name" required="required" />
-						<form:errors path="uname" style="color:red;" />
+						<form:errors path="name" style="color:red;" />
 					</div>
 					<div class="form-group">
 						<form:input path="email" type="email" class="form-control"
@@ -35,16 +35,16 @@
 						<form:errors path="email" style="color:red;" />
 					</div>
 					<div class="form-group">
-						<form:input path="pwd" type="password" class="form-control"
+						<form:input path="password" type="password" class="form-control"
 							placeholder="User Password" required="required" />
-						<form:errors path="pwd" style="color:red;" />
+						<form:errors path="password" style="color:red;" />
 					</div>
-					<div class="form-group">
+					<%-- 	<div class="form-group">
 						<form:input path="address" type="textarea" class="form-control"
 							placeholder="Address" required="required" />
 						<form:errors path="address" style="color:red;" />
 					</div>
-
+ --%>
 					<div class="form-group">
 						<form:hidden path="enabled" value="true" />
 						<form:errors path="enabled" style="color:red;" />
@@ -64,8 +64,7 @@
 						</div>
 					</div>
 					<div class="form-group" align="center">
-						<button type="submit" class="btn btn-primary"
-							value="Register">Submit</button>
+						<button type="submit" class="btn btn-primary" value="Register">Submit</button>
 					</div>
 
 				</form:form>
