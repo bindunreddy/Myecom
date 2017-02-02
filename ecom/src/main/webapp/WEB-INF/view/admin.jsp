@@ -55,7 +55,7 @@
 
 			<tr>
 				<td class="col-sm-8 controls"><input type="submit"
-					class="btn btn-success" value="Submit" /></td>
+					class="btn btn-success" value="Add Product" /></td>
 			</tr>
 
 		</table>
@@ -67,6 +67,11 @@
 </form:form>
 
 <div class="mainbox col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-2">
+<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title">Book List</div>
+			</div>
+		</div>
 
 	<table class="table">
 		<tr>

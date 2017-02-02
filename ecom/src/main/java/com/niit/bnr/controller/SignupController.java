@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.bnr.dao.UserDAO;
@@ -29,11 +28,13 @@ public class SignupController {
 	}
 	
 	@PostMapping(value = "/insert")
-	public String addUser(@Valid @ModelAttribute("user") User user,HttpServletRequest request){
+	public ModelAndView addUser(@Valid @ModelAttribute("user") User user,HttpServletRequest request){
 		
 		
 		userDAO.insertUser(user);	
 		
-		return "/login";
+		//return "/login";
+		
+		return new ModelAndView("success","message","Registered successfully. Please Click on Login");
 	}
 }
